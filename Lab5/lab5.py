@@ -1,7 +1,8 @@
 import random
-import string
 import sys
 
+
+lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
 
 def get_valid_letter(existing_letters):
     while True:
@@ -9,7 +10,7 @@ def get_valid_letter(existing_letters):
         if len(letter) != 1:
             print("Error: Please enter exactly one character.")
             continue
-        if letter not in string.ascii_lowercase:
+        if letter not in lowercase_letters:
             print("Error: Please enter a lowercase letter (a-z).")
             continue
         if letter in existing_letters:
@@ -52,7 +53,7 @@ def collect_letter_replacements(num_letters=5, num_replacements=3):
 
 
 def generate_random_passwords(length=15, count=5):
-    return [''.join(random.choices(string.ascii_lowercase, k=length)) for _ in range(count)]
+    return [''.join(random.choices(lowercase_letters, k=length)) for _ in range(count)]
 
 
 def apply_replacements(passwords, letter_replacements):
